@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <div id="div1">
+        <img src="https://res.cloudinary.com/apideck/image/upload/v1565400162/catalog/intigriti/icon128x128.png" title="intigriti">
+    
+        <h2>Login</h2>
+        <div id="div2">
+            <label id="usr1"><b>Username</b></label>
+            <input type="text" name="name" id="usr" size="30" placeholder="Username" autocomplete="off"/>
+            <small id="emailerror"></small>
+            <label><b id="pass1">Password</b></label>
+            <input type="text" id="pass" name="Password" size="30" placeholder="Password" autocomplete="off"/>
+            <small id="passerror"></small>
+            <button id="btn">Submit</button>
+            <span></span>
+        </div>
+    </div>
+</body>
+<style>
+    body {
+        
+        margin: 0%;
+        height: 100vh;
+        width: 100%;
+        background-color: rgb(150, 78, 67);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #div1 {
+        border-radius: 5px;
+        height: 400px;
+        width: 500px;
+        text-align: center;
+
+        background-color: rgb(255, 255, 255);
+        margin: 300px;
+       
+        border: rgb(28, 23, 23) solid 2px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 15px 15px rgb(0, 0, 0);
+        
+    }
+  
+    #div2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 20px;
+    }
+    #div2 label {
+        text-align: center;
+        padding: 5px;
+        height: 20px;
+        text-decoration: dashed;
+        font-size: 15px;
+
+    } 
+    #div2 input {
+        border-radius: 4px;
+        padding: 5px;
+    }
+    #div2 button {
+        padding: 10px 10px;
+        margin: 5px;
+        box-shadow: 0px 5px 10px black;
+        border-radius: 3px;
+        font-size: 15px;
+        background-color: chartreuse;
+        
+    }
+    #div2 button:hover {
+        background-color: rgb(69, 164, 50);
+        
+    
+    }
+    #div1 h2 {
+        font-size: 30px;
+        height: 2px;
+    }
+    #div1 img {
+        margin-top: 30px;
+        height: 20%;
+        width: 20%;
+    }
+
+    
+</style>
+<script>
+       const username = document.querySelector('#usr');
+       const pass = document.querySelector('#pass');
+       const button = document.querySelector('#btn');
+       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+       const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        
+        const emailans = emailRegex.test(username.value);
+        const passans = passwordRegex.test(pass.value);
+        button.addEventListener('click', function(evt) {
+            evt.preventDefault();
+            if(!emailans) {
+                document.querySelector('#emailerror').textContent = 'Invalid Email Address'
+
+        } 
+        if (!passans) {
+            document.querySelector('#passerror').textContent= "Password is Incorrect"
+        }
+
+        })
+        
+        
+</script>
+</html>
